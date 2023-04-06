@@ -9,10 +9,13 @@ print(accounts[-1])
 print(accounts[-1][2])
 
 # Dla przykładu powyżej:
-#             0         1       2
-#     0   [0][0]   [0][1]   [0][2]
-#     1
+#             0       1       2
+#     0   [0][0]  [0][1]  [0][2]
+#     1   [1][0]  [1][1]  [1][2]
 #     2
+# print(accounts)
+# print(accounts[0][2], accounts[1][2])
+
 print(accounts)
 print(accounts[0][2], accounts[1][2])
 
@@ -47,8 +50,7 @@ for i in range(10, 1, -1):   # maleje od 10 do 1 co 1 krok
     print(i)
 
 
-
-
+#Mamy listę danych:
 data = [
     ("Adam", 750),
     ("Ewa", 250),
@@ -58,9 +60,29 @@ data = [
     ("Ewa", 300)
 ]
 
+# Należy przepisać powyższe krotki do słownika danych według poniższego schematu:
+#     klucz - 1 wartość krotki
+#     wartość - 2 wartość krotki podzielona przez 50
+#
+#     Przykładowo dla pierwsze elementu listy powinnyśmy otrzymać wpis:
+#     "Adam": 15
+#
+#     Program ma pomijać klucze które są duplikowane (wchodzi pierwsze wystąpienie),
+#     czyli drugi "Adam" powinien być pominięty w przetwarzaniu.
+
+data = [
+    ("Adam", 750),
+    ("Ewa", 250),
+    ("Jakub", 200),
+    ("Elżbieta", 1000),
+    ("Adam", 400),
+    ("Ewa", 300),
+    ("Bożydar", 100)
+]
+
 data_in_dict = {}
 
-print(data[0][0], data[0][1])
+# print(data[0][0], data[0][1])
 
 for i in range(len(data)):
     if data[i][0] not in data_in_dict.keys():
@@ -68,6 +90,14 @@ for i in range(len(data)):
 
 print(data_in_dict)
 
+
+# Napisz funkcję, która przyjmuja łańcuch znakowy
+#     (dla ułtawienia: same małe litery)
+# Przykładowo: alamakotaakotmapierdolca
+# Funkcja ma zwrócić słownik (return), który zawiera informacje w postaci:
+#     Klucz - litera
+#     Wartość - ilość wystąpień litery w tekście
+# Przykładowo: dla klucza "l" wartości to 2
 
 txt = "alamakotaakotmapierdolca"
 
@@ -79,28 +109,32 @@ def char_counter(text: str) -> dict:
 
     return result
 
-print(char_counter(txt))
+def char_counter_alternative(text: str) -> dict:
+    result = {}
+    for c in text:
+        if c in result.keys():
+            result[c] += 1
+        else:
+            result[c] = 1
+
+    return result
+
+
+# print(char_counter(txt))
+# print(char_counter_alternative(txt)
 
 
 # While
 
 n = 0
 while n < 10:
+   # n += 1
     print(n ** 2)
-    n += 1
 
 
 txt = "ala-ma-kota"
 n = 0
 
-while n < len(txt):
-    print(txt[n])
-    n += 1
-
-
-
-
-
-
-
-
+#while n < len(txt):
+#    print(txt[n])
+#    n += 1
